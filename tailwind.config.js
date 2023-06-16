@@ -8,11 +8,24 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        mount: "url('/mount.jpg')",
+        olx: "url('/olxx.jpg')",
+        olx2: "url('/olx2.png')",
+        vp: "url('/vpp.jpg')",
+        vp2: "url('/vpp2.jpg')",
+        ip: "url('/ipp.jpg')",
+        ip2: "url('/ipp2.jpg')",
+        sp: "url('/sp1.jpg')",
+        sp2: "url('/sp2.jpg')",
+        nx: "url('/nxx.jpg')",
+        nx2: "url('/nxx2.jpg')",
+        weather: "url('/weather.jpg')",
+        weather2: "url('/weather2.jpg')",
+        split: "url('/split.jpg')",
+        finance: "url('/f1.jpg')",
+        finance2: "url('/f2.jpg')",
       },
     },
   },
   plugins: [],
-}
+};
