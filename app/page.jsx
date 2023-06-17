@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-
+import Navbar from './components/Navbar';
 import Project from './components/Project';
 import Skill from './components/Skill';
 
@@ -10,31 +10,52 @@ export default function Home() {
   const [isSkillInView, setSkillIsInView] = useState(false);
   const [isProjectInView, setProjectIsInView] = useState(false);
 
+  const [isDarkTheme, setTheme] = useState(true);
   const [refTop, inView] = useInView({ threshold: 0.7 });
   //apply when atleast 70% of the element is in viewport
-
   const [refSkill, inViewSkill] = useInView({ threshold: 0.6 });
   const [refProject, inViewProject] = useInView({ threshold: 0.3 });
 
   useEffect(() => {
     setTopIsInView(inView);
   }, [inView]);
+
   useEffect(() => {
     setProjectIsInView(inViewProject);
   }, [inViewProject]);
+
   useEffect(() => {
     setSkillIsInView(inViewSkill);
   }, [inViewSkill]);
 
+  const changeTheme = () => {
+    setTheme((value) => !value);
+  };
   return (
-    <>
-      <div className="mainDiv p-20 bg-gradient-to-r from-emerald-800 via-slate-800 to-pink-800">
-        <button className="p-4 bg-yellow-400 text-white m-4">Light Mode</button>
+    <div
+      className={`bg-gradient-to-r ${
+        isDarkTheme
+          ? 'from-emerald-800 via-slate-800 to-pink-800'
+          : 'from-emerald-400 via-indigo-400 to-pink-400 '
+      } `}
+    >
+      <Navbar isDarkTheme={isDarkTheme} />
+
+      <div className={`mainDiv p-20`}>
+        <div className="text-right">
+          <button
+            onClick={changeTheme}
+            className="p-4 shadow-xl rounded text-white my-4"
+          >
+            {isDarkTheme ? 'Color' : 'Dark'} Mode
+          </button>
+        </div>
+
         <div
           ref={refTop}
-          className={`topPortion duration-300 bg-slate-800 shadow-2xl rounded-lg my-8 ${
-            isTopInView ? 'scale-105' : ''
-          }`}
+          className={`topPortion duration-300 ${
+            isDarkTheme ? 'bg-slate-800' : 'bg-indigo-500'
+          } shadow-2xl rounded-lg my-8 ${isTopInView ? 'scale-105' : ''}`}
         >
           <div className={`grid grid-cols-3 gap-8 text-white p-40`}>
             <div className="backdrop-blur-2xl col-span-2">
@@ -62,12 +83,14 @@ export default function Home() {
 
         <div
           ref={refSkill}
-          className={`skillPortion duration-300 bg-slate-900 shadow-2xl rounded-lg my-8 text-white p-24 ${
+          className={`skillPortion duration-300 ${
+            isDarkTheme ? 'bg-slate-900' : 'bg-emerald-600'
+          } shadow-2xl rounded-lg my-16 text-white p-24 ${
             isSkillInView ? 'scale-105' : ''
           }`}
         >
-          <p className="text-3xl font-bold py-4">My Skills</p>
-          <hr className="w-1/3 py-4 text-yellow-300" />
+          <p className={`text-3xl $ font-bold py-4`}>My Skills</p>
+          <hr className={`w-1/3 py-4 `} />
 
           <div className=" py-4 text-center grid grid-cols-8 gap-8">
             <Skill color="red" name="React" />
@@ -99,7 +122,9 @@ export default function Home() {
 
         <div
           ref={refProject}
-          className={`projectPortion duration-300 bg-slate-900 shadow-2xl rounded-lg my-20 text-white p-20 ${
+          className={`projectPortion duration-300 ${
+            isDarkTheme ? 'bg-slate-900' : 'bg-red-400'
+          } shadow-2xl rounded-lg my-20 text-white p-20 ${
             isProjectInView ? 'scale-105' : ''
           }`}
         >
@@ -160,11 +185,15 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="bottomPortion hover:scale-105 duration-300 bg-slate-900 shadow-2xl rounded-lg my-20 text-white p-20">
+        <div
+          className={`bottomPortion hover:scale-105 duration-300 ${
+            isDarkTheme ? 'bg-slate-900' : 'bg-sky-600'
+          } shadow-2xl rounded-lg my-20 text-white p-20`}
+        >
           <p className="text-3xl font-bold py-4">Contact</p>
           <hr className="w-1/3 py-4 text-yellow-300" />{' '}
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,10 +1,15 @@
 import Link from 'next/link';
-import navStyles from '../../styles/Nav.module.css';
 
-function Navbar() {
+function Navbar(props) {
   return (
-    <nav className="bg-gradient-to-r from-slate-700 to-slate-800 text-white shadow-lg">
-      <center>
+    <center>
+      <nav
+        className={`bg-gradient-to-r ${
+          props.isDarkTheme
+            ? 'from-slate-700 to-slate-800 text-white'
+            : 'from-indigo-500 to-indigo-600 text-white'
+        }  shadow-xl py-4 w-1/2 rounded-[0_0_25px_25px]`}
+      >
         <ul className="">
           <li className="inline-block m-6 text-lg">
             <Link href="/">Home</Link>
@@ -19,8 +24,8 @@ function Navbar() {
             <Link href="/contact">Contact </Link>{' '}
           </li>
         </ul>
-      </center>
-    </nav>
+      </nav>
+    </center>
   );
 }
 
