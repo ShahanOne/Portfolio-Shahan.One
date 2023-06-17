@@ -6,21 +6,34 @@ import Project from './components/Project';
 import Skill from './components/Skill';
 
 export default function Home() {
-  const [isInView, setIsInView] = useState(false);
-  const [ref, inView] = useInView({ threshold: 0.4 });
-  //apply when atleast 40% of the element is in viewport
+  const [isTopInView, setTopIsInView] = useState(false);
+  const [isSkillInView, setSkillIsInView] = useState(false);
+  const [isProjectInView, setProjectIsInView] = useState(false);
+
+  const [refTop, inView] = useInView({ threshold: 0.7 });
+  //apply when atleast 70% of the element is in viewport
+
+  const [refSkill, inViewSkill] = useInView({ threshold: 0.6 });
+  const [refProject, inViewProject] = useInView({ threshold: 0.3 });
+
   useEffect(() => {
-    setIsInView(inView);
+    setTopIsInView(inView);
   }, [inView]);
+  useEffect(() => {
+    setProjectIsInView(inViewProject);
+  }, [inViewProject]);
+  useEffect(() => {
+    setSkillIsInView(inViewSkill);
+  }, [inViewSkill]);
 
   return (
     <>
       <div className="mainDiv p-20 bg-gradient-to-r from-emerald-800 via-slate-800 to-pink-800">
         <button className="p-4 bg-yellow-400 text-white m-4">Light Mode</button>
         <div
-          ref={ref}
+          ref={refTop}
           className={`topPortion duration-300 bg-slate-800 shadow-2xl rounded-lg my-8 ${
-            isInView ? 'scale-105' : ''
+            isTopInView ? 'scale-105' : ''
           }`}
         >
           <div className={`grid grid-cols-3 gap-8 text-white p-40`}>
@@ -46,7 +59,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="midPortion1 duration-300 bg-slate-900 shadow-2xl rounded-lg my-8 text-white p-24">
+
+        <div
+          ref={refSkill}
+          className={`skillPortion duration-300 bg-slate-900 shadow-2xl rounded-lg my-8 text-white p-24 ${
+            isSkillInView ? 'scale-105' : ''
+          }`}
+        >
           <p className="text-3xl font-bold py-4">My Skills</p>
           <hr className="w-1/3 py-4 text-yellow-300" />
 
@@ -77,7 +96,13 @@ export default function Home() {
             <Skill color="sky" name="Javascript" />
           </div>
         </div>
-        <div className="midPortion2 duration-300 bg-slate-900 shadow-2xl rounded-lg my-20 text-white p-20">
+
+        <div
+          ref={refProject}
+          className={`projectPortion duration-300 bg-slate-900 shadow-2xl rounded-lg my-20 text-white p-20 ${
+            isProjectInView ? 'scale-105' : ''
+          }`}
+        >
           <p className="text-3xl font-bold py-4">Projects</p>
           <hr className="w-1/3 py-6 text-yellow-300" />
           <div id="projects" className="projects grid grid-cols-2 gap-16">
@@ -92,8 +117,7 @@ export default function Home() {
               link="https://atlasone.vercel.app"
               bg="nx"
               info="Contains information about 200+ countries.
-
-Has Search and Filter by region functionalities along with Light and Dark Themes"
+              Has Search and Filter by region functionalities along with Light and Dark Themes"
             />
             <Project
               title="Ip Tracker"
@@ -106,8 +130,7 @@ Has Search and Filter by region functionalities along with Light and Dark Themes
               link="https://videoplaya.netlify.app"
               bg="vp"
               info="Youtube video playing and uploading app with a MongoDB database for register and login along with like and comment functionalities.
-
-The fun part ? There’s NO ADS at all !"
+              The fun part ? There’s NO ADS at all !"
             />
             <Project
               title="Space App"
@@ -125,9 +148,7 @@ The fun part ? There’s NO ADS at all !"
               title="Tip Calculator"
               link="https://shahanone.github.io/Tip-Calculator/"
               bg="split"
-              info="Made with HTML,CSS (with Bootstrap) & JavaScript
-
-"
+              info="Made with HTML,CSS (with Bootstrap) & JavaScript"
             />
 
             <Project
