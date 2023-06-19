@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Project from './components/Project';
 import Skill from './components/Skill';
+import Footer from './components/Footer';
 
 export default function Home() {
   const [isTopInView, setTopIsInView] = useState(false);
@@ -40,7 +42,6 @@ export default function Home() {
       } `}
     >
       <Navbar isDarkTheme={isDarkTheme} />
-
       <div className={`mainDiv p-20`}>
         <div className="text-right">
           <button
@@ -69,15 +70,24 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-3 text-center text-white p-8 gap-12">
-            <button className="bg-gray-900 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl">
-              GitHub
-            </button>
-            <button className="bg-indigo-700 active:translate-y-1 duration-150 animate-pulse hover:animate-none py-6 shadow-lg rounded-xl">
-              LinkedIn
-            </button>
-            <button className="bg-orange-500 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl">
-              Resume
-            </button>
+            <Link
+              className="bg-gray-900 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              href="https://github.com/ShahanOne"
+            >
+              <button>GitHub</button>
+            </Link>
+            <Link
+              className="bg-indigo-700 active:translate-y-1 duration-150 animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              href="https://www.linkedin.com/in/syed-shahan-hussain-481b87218/"
+            >
+              <button>LinkedIn</button>
+            </Link>
+            <Link
+              className="bg-orange-500 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              href="https://drive.google.com/file/d/1MHq03MnrnRa9r2Hjo8BjnLzWhfSO1XL9/view?usp=sharing"
+            >
+              <button>Resume</button>
+            </Link>
           </div>
         </div>
 
@@ -186,14 +196,36 @@ export default function Home() {
           </div>
         </div>
         <div
-          className={`bottomPortion hover:scale-105 duration-300 ${
-            isDarkTheme ? 'bg-slate-900' : 'bg-sky-600'
+          id="contact"
+          className={`bottomPortion text-center hover:scale-105 duration-300 ${
+            isDarkTheme ? 'bg-gray-950' : 'bg-sky-900'
           } shadow-2xl rounded-lg my-20 text-white p-20`}
         >
-          <p className="text-3xl font-bold py-4">Contact</p>
-          <hr className="w-1/3 py-4 text-yellow-300" />{' '}
+          <p className="text-lg font-bold p-6">Thank you for visiting</p>
+          <p className="text-lg py-6">Let&apos;s connect : </p>
+          <div className="grid grid-cols-3 gap-4 px-32">
+            <Link
+              className="rounded-full shadow p-2 bg-orange-600 hover:bg-orange-500 active:-translate-y-1 duration-200"
+              href="mailto:shahanhussain9105@gmail.com"
+            >
+              <button>Mail</button>
+            </Link>{' '}
+            <Link
+              className="rounded-full shadow p-2 bg-indigo-700 hover:bg-indigo-600 active:-translate-y-1 duration-200"
+              href="https://www.linkedin.com/in/syed-shahan-hussain-481b87218/"
+            >
+              <button>LinkedIn</button>{' '}
+            </Link>{' '}
+            <Link
+              className="rounded-full shadow p-2 bg-violet-700 hover:bg-violet-600 active:-translate-y-1 duration-200"
+              href="https://www.discordapp.com/users/Shahan.One#4036"
+            >
+              <button>Discord</button>
+            </Link>
+          </div>
         </div>
       </div>
+      <Footer isDarkTheme={isDarkTheme} />
     </div>
   );
 }
