@@ -1,4 +1,5 @@
 'use client';
+//test-branch
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
@@ -42,7 +43,7 @@ export default function Home() {
       } `}
     >
       <Navbar isDarkTheme={isDarkTheme} />
-      <div className={`mainDiv p-20`}>
+      <div className={`mainDiv p-4 md:p-20`}>
         <div className="text-right">
           <button
             onClick={changeTheme}
@@ -58,32 +59,34 @@ export default function Home() {
             isDarkTheme ? 'bg-slate-800' : 'bg-indigo-500'
           } shadow-2xl rounded-lg my-8 ${isTopInView ? 'scale-105' : ''}`}
         >
-          <div className={`grid grid-cols-3 gap-8 text-white p-40`}>
-            <div className="backdrop-blur-2xl col-span-2">
-              <p className="text-3xl font-bold">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-3 md:gap-8 text-white py-16 px-8 md:p-40`}
+          >
+            <div className="backdrop-blur-2xl md:col-span-2">
+              <p className="text-3xl font-bold py-4 md:py-0">
                 Welcome to Shahan&apos;s Environment ಠ ಠ
               </p>{' '}
             </div>
-            <div className="">
+            <div className="py-2 md:py-0">
               A Full Stack Web Developer who has passion and love for
               interactive and beautiful web application development
             </div>
           </div>
-          <div className="grid grid-cols-3 text-center text-white p-8 gap-12">
+          <div className="grid grid-cols-3 text-center text-white p-4 md:p-8 gap-12">
             <Link
-              className="bg-gray-900 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              className="bg-gray-900 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-4 md:py-6 shadow-lg rounded-xl"
               href="https://github.com/ShahanOne"
             >
               <button>GitHub</button>
             </Link>
             <Link
-              className="bg-indigo-700 active:translate-y-1 duration-150 animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              className="bg-indigo-700 active:translate-y-1 duration-150 animate-pulse hover:animate-none py-4 md:py-6 shadow-lg rounded-xl"
               href="https://www.linkedin.com/in/syed-shahan-hussain-481b87218/"
             >
               <button>LinkedIn</button>
             </Link>
             <Link
-              className="bg-orange-500 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-6 shadow-lg rounded-xl"
+              className="bg-orange-500 active:translate-y-1 duration-150  animate-pulse hover:animate-none py-4 md:py-6 shadow-lg rounded-xl"
               href="https://drive.google.com/file/d/1MHq03MnrnRa9r2Hjo8BjnLzWhfSO1XL9/view?usp=sharing"
             >
               <button>Resume</button>
