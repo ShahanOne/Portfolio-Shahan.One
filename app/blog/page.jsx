@@ -12,9 +12,9 @@ export default function Blog() {
   // }
   // console.log(blogs);
   return (
-    <div className="parentDiv px-12 bg-red-200">
+    <div className="parentDiv  mdpx-12 bg-red-200">
       <Navbar />
-      <div className="grid grid-cols-2 pb-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 pb-40">
         {blogs?.map((blog, key) => {
           return (
             <div

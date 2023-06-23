@@ -38,12 +38,12 @@ export default function Home() {
     <div
       className={`bg-gradient-to-r ${
         isDarkTheme
-          ? 'from-emerald-800 via-slate-800 to-pink-800'
-          : 'from-emerald-400 via-indigo-400 to-pink-400 '
+          ? 'from-emerald-800 md:via-slate-800 to-pink-800'
+          : ' from-emerald-400 md:via-indigo-400 to-pink-400 '
       } `}
     >
       <Navbar isDarkTheme={isDarkTheme} />
-      <div className={`mainDiv p-4 md:p-20`}>
+      <div className={`mainDiv p-2 md:p-20`}>
         <div className="text-right">
           <button
             onClick={changeTheme}
@@ -98,14 +98,14 @@ export default function Home() {
           ref={refSkill}
           className={`skillPortion duration-300 ${
             isDarkTheme ? 'bg-slate-900' : 'bg-emerald-600'
-          } shadow-2xl rounded-lg my-16 text-white p-24 ${
+          } shadow-2xl rounded-lg my-8 md:my-16 text-white px-6 py-8 md:p-24 ${
             isSkillInView ? 'scale-105' : ''
           }`}
         >
           <p className={`text-3xl $ font-bold py-4`}>My Skills</p>
           <hr className={`w-1/3 py-4 `} />
 
-          <div className=" py-4 text-center grid grid-cols-8 gap-8">
+          <div className="py-4 text-center grid grid-cols-3 md:grid-cols-8 gap-4 md:gap-8">
             <Skill color="red" name="React" />
             <Skill color="blue" name="Next JS" />{' '}
             <Skill color="green" name="Tailwind CSS" />{' '}
@@ -120,7 +120,7 @@ export default function Home() {
             <Skill color="indigo" name="Auth" />
             <Skill color="fuchsia" name="Postman" />{' '}
             <Skill color="gray" name="REST APIs" />
-            <Skill color="yellow" name="Command Line" />
+            <Skill color="yellow" name="CMD" />
             <Skill color="emerald" name="Vercel" />
             <Skill color="sky" name="Netlify" />{' '}
             <Skill color="orange" name="Heroku" />
@@ -137,13 +137,16 @@ export default function Home() {
           ref={refProject}
           className={`projectPortion duration-300 ${
             isDarkTheme ? 'bg-slate-900' : 'bg-red-400'
-          } shadow-2xl rounded-lg my-20 text-white p-20 ${
+          } shadow-2xl rounded-lg my-10 md:my-20 text-white p-8 md:p-20 ${
             isProjectInView ? 'scale-105' : ''
           }`}
         >
           <p className="text-3xl font-bold py-4">Projects</p>
           <hr className="w-1/3 py-6 text-yellow-300" />
-          <div id="projects" className="projects grid grid-cols-2 gap-16">
+          <div
+            id="projects"
+            className="projects grid grid-cols-1 md:grid-cols-2 gap-16"
+          >
             <Project
               title="Olx Clone"
               link="https://olxcloneapp.netlify.app"
@@ -202,11 +205,11 @@ export default function Home() {
           id="contact"
           className={`bottomPortion text-center hover:scale-105 duration-300 ${
             isDarkTheme ? 'bg-gray-950' : 'bg-sky-900'
-          } shadow-2xl rounded-lg my-20 text-white p-20`}
+          } shadow-2xl rounded-lg my-6 md:my-20 text-white p-8 md:p-20`}
         >
           <p className="text-lg font-bold p-6">Thank you for visiting</p>
           <p className="text-lg py-6">Let&apos;s connect : </p>
-          <div className="grid grid-cols-3 gap-4 px-32">
+          <div className="grid grid-cols-3 gap-4  md:px-32">
             <Link
               className="rounded-full shadow p-2 bg-orange-600 hover:bg-orange-500 active:-translate-y-1 duration-200"
               href="mailto:shahanhussain9105@gmail.com"
