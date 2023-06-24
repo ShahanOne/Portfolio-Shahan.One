@@ -38,7 +38,7 @@ function Skill(props) {
   //   const hoverColor = `hover:bg-${color}-500`;
   return (
     <div
-      className={`${bgcolor[color]} ${hoverColor[color]} active:animate-pulse hover:-translate-y-1 ease-in-out duration-200 text-xs md:text-base p-2 md:px-4 md:py-8 shadow-lg rounded-full`}
+      className={`${bgcolor[color]} ${hoverColor[color]} active:animate-pulse hover:-translate-y-1 ease-in-out duration-200 text-xs md:text-base p-4 md:px-4 md:py-8 shadow-lg shadow-inherit rounded-full`}
     >
       {props.name}
     </div>
