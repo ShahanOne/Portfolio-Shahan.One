@@ -15,7 +15,7 @@ function Project(props) {
 
   return (
     <div
-      className={`${backgrounds[bg1]} hover:scale-105 delay-200 duration-300 project bg-cover rounded-xl pt-40`}
+      className={`${backgrounds[bg1]} hover:scale-105 delay-200 duration-300 project bg-cover rounded-xl pt-20`}
     >
       <div className="rounded-xl py-8 px-2 bg-gradient-to-t from-emerald-900 hover:from-emerald-800">
         <div className="text-xs hover:-translate-y-2 py-4 ease-in-out duration-300">

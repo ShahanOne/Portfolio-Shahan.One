@@ -14,10 +14,10 @@ export default function Home() {
   const [isProjectInView, setProjectIsInView] = useState(false);
 
   const [isDarkTheme, setTheme] = useState(true);
-  const [refTop, inView] = useInView({ threshold: 0.7 });
+  const [refTop, inView] = useInView({ threshold: 0.8 });
   //apply when atleast 70% of the element is in viewport
   const [refSkill, inViewSkill] = useInView({ threshold: 0.6 });
-  const [refProject, inViewProject] = useInView({ threshold: 0.3 });
+  const [refProject, inViewProject] = useInView({ threshold: 0.2 });
 
   useEffect(() => {
     setTopIsInView(inView);
@@ -38,8 +38,8 @@ export default function Home() {
     <div
       className={`bg-gradient-to-r ${
         isDarkTheme
-          ? 'from-emerald-800 md:via-slate-800 to-pink-800'
-          : ' from-emerald-400 md:via-indigo-400 to-pink-400 '
+          ? 'from-emerald-800 via-slate-800 to-pink-800'
+          : ' from-emerald-600 via-indigo-700 to-pink-500 '
       } `}
     >
       <Navbar isDarkTheme={isDarkTheme} />
@@ -98,7 +98,7 @@ export default function Home() {
           ref={refSkill}
           className={`skillPortion duration-300 ${
             isDarkTheme ? 'bg-slate-900' : 'bg-emerald-600'
-          } shadow-2xl rounded-lg my-8 md:my-16 text-white px-6 py-8 md:p-24 ${
+          } shadow-2xl rounded-xl md:rounded-lg my-6 md:my-16 text-white px-6 py-12 md:p-24 ${
             isSkillInView ? 'scale-105' : ''
           }`}
         >
@@ -136,8 +136,8 @@ export default function Home() {
         <div
           ref={refProject}
           className={`projectPortion duration-300 ${
-            isDarkTheme ? 'bg-slate-900' : 'bg-red-400'
-          } shadow-2xl rounded-lg my-10 md:my-20 text-white p-8 md:p-20 ${
+            isDarkTheme ? 'bg-slate-900' : 'bg-red-950'
+          } shadow-2xl rounded-lg my-16 md:my-20 text-white p-8 md:p-20 ${
             isProjectInView ? 'scale-105' : ''
           }`}
         >
