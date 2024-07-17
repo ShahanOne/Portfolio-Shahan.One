@@ -168,7 +168,7 @@ export default function Home() {
             />
             <Project
               title="Youtube Video Player"
-              link="https://videoplaya.netlify.app"
+              link="https://videoplaya.vercel.app/"
               bg="vp"
               info="Youtube video playing and uploading app with a MongoDB database for register and login along with like and comment functionalities.
               The fun part ? There’s NO ADS at all !"
