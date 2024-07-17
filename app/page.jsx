@@ -155,7 +155,7 @@ export default function Home() {
             />
             <Project
               title="Next Countries"
-              link="https://atlasone.vercel.app"
+              link="https://atlasonext.vercel.app/"
               bg="nx"
               info="Contains information about 200+ countries.
               Has Search and Filter by region functionalities along with Light and Dark Themes"
